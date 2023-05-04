@@ -1,0 +1,9 @@
+{
+  "examples": {
+    "basic": "Basic Usage",
+    "customization": "Customization",
+    "validation": "Custom Validation",
+    "config": "Global configuration"
+  },
+  "lds": "color-picker"
+}

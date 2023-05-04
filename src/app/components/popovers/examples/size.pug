@@ -1,0 +1,8 @@
+.slds-button-group(role="group")
+  button(type="button", nglButton, [nglPopover]="tip", nglPopoverSize="small", [(nglPopoverOpen)]="open.small") Small
+  button(type="button", nglButton, [nglPopover]="tip", nglPopoverSize="medium", [(nglPopoverOpen)]="open.medium") Medium
+  button(type="button", nglButton, [nglPopover]="tip", nglPopoverSize="large", [(nglPopoverOpen)]="open.large") Large
+  button(type="button", nglButton, [nglPopover]="tip", nglPopoverSize="full-width", [(nglPopoverOpen)]="open['full-width']") Full-width
+
+ng-template(#tip)
+  | Sit nulla est ex deserunt exercitation anim occaecat. Nostrud ullamco deserunt aute id consequat veniam incididunt duis in sint irure nisi.

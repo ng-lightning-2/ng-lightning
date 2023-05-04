@@ -1,0 +1,27 @@
+section.slds-modal([ngClass]="modalClass()",
+                   [attr.aria-hidden]="!open", [attr.aria-labelledby]="headingId", [attr.aria-describedby]="contentId"
+                   aria-modal="true", [attr.role]="prompt ? 'alertdialog' : 'dialog'", tabindex="-1")
+  .slds-modal__container
+    //- Header
+    header.slds-modal__header([ngClass]="modalHeaderClass()")
+
+      //- Close button
+      button.slds-button.slds-button_icon.slds-button_icon-inverse.slds-modal__close(*ngIf="showClose", type="button", (click)="close()")
+        svg.slds-button__icon.slds-button__icon_large(nglIconName="utility:close")
+        span.slds-assistive-text(*ngIf="closeButtonAssistiveText") {{closeButtonAssistiveText}}
+
+      //- Header
+      ng-template(#localHeader): h2.slds-text-heading_medium.slds-hyphenate(*ngIf="header", [id]="headingId") {{header}}
+      ng-template(*ngIf="headerTpl; else localHeader", [ngTemplateOutlet]="headerTpl.templateRef", [ngTemplateOutletContext]="{id: headingId}")
+
+      //- Tagline
+      p.slds-m-top_x-small(*ngIf="hasHeader && taglineTpl"): ng-template([ngTemplateOutlet]="taglineTpl.templateRef")
+
+    //- Body
+    .slds-modal__content([id]="contentId", cdkScrollable)
+      ng-content
+
+    //- Footer
+    footer.slds-modal__footer(*ngIf="footer", [ngClass]="modalFooterClass()")
+      ng-template([ngTemplateOutlet]="footer.templateRef")
+.slds-backdrop([class.slds-backdrop_open]="open")

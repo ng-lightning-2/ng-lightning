@@ -1,0 +1,14 @@
+.slds-m-bottom_medium
+ .slds-text-heading_small ellie
+ ngl-dynamic-icon(type="ellie")
+
+.slds-m-bottom_medium
+  .slds-text-heading_small score (negative):
+  ngl-dynamic-icon(type="score", option="negative")
+
+.slds-text-heading_small.slds-m-bottom_x-small {{type}}
+ngl-dynamic-icon([type]="type", (click)="change()", [alternativeText]="'Dynamic icon'", [title]="type")
+
+.slds-m-top_large
+  button(type="button", nglButton, (click)="change()") Change
+

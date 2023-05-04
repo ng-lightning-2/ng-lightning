@@ -1,0 +1,34 @@
+.slds-text-title_caps.slds-m-bottom_small Single selection
+.slds-m-bottom_small
+  | Selected:
+  code {{selected}}
+.slds-button-group([(nglPick)]="selected", nglPickActiveClass="slds-button_brand", role="group")
+  button(type="button", nglButton, nglPickOption="left") Left
+  |
+  button(type="button", nglButton, nglPickOption="middle") Middle
+  |
+  button(type="button", nglButton, [nglPickOption]="'right'") Right
+|
+|
+.slds-text-title_caps.slds-m-bottom_small.slds-m-top_x-large Multiple selection
+.slds-m-bottom_small
+  | Selected:
+  code {{multiple}}
+.slds-button-group([(nglPick)]="multiple", nglPickMultiple, nglPickActiveClass="slds-button_brand", role="group")
+  button(type="button", nglButton, nglPickOption="left") Left
+  |
+  button(type="button", nglButton, nglPickOption="middle") Middle
+  |
+  button(type="button", nglButton, [nglPickOption]="'right'") Right
+|
+|
+.slds-text-title_caps.slds-m-bottom_small.slds-m-top_x-large Multiple selection with object
+.slds-m-bottom_small
+  | Selected:
+  code {{multipleObject | json}}
+.slds-button-group([(nglPick)]="multipleObject", nglPickMultiple, nglPickActiveClass="slds-button_brand", role="group")
+  button(type="button", nglButton, nglPickOption="left") Left
+  |
+  button(type="button", nglButton, nglPickOption="middle") Middle
+  |
+  button(type="button", nglButton, [nglPickOption]="'right'") Right

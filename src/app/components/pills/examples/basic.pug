@@ -1,0 +1,27 @@
+ngl-pill((remove)="log()")
+  a(nglPillAction, href="javascript:void(0)") Pill
+
+ngl-pill(icon="standard:feedback", (remove)="log()")
+  a(nglPillAction, href="javascript:void(0)") Icon
+
+ngl-pill(avatar="assets/images/avatar2.jpg", (remove)="log()")
+  a(nglPillAction, href="javascript:void(0)") Avatar
+
+ngl-pill([icon]="warningTpl", hasError="true", (remove)="log()")
+  ng-template(#warningTpl): ngl-icon(iconName="utility:error", variant="error", title="error")
+  a(nglPillAction, href="javascript:void(0)") Error
+
+ngl-pill.slds-pill_bare((remove)="log()")
+  a(nglPillAction, href="javascript:void(0)") Bare
+
+ngl-pill((remove)="log()") Unlinked
+
+ngl-pill No remove
+
+.slds-text-title_caps.slds-m-bottom_small.slds-m-top_x-large Removable pills
+button(type="button", nglButton, variant="brand", (click)="add()") Add
+.slds-clearfix.slds-p-vertical_xx-small
+ngl-pill((remove)="remove(pill)", *ngFor="let pill of pills")
+  ngl-icon(iconName="standard:account")
+  |
+  a(nglPillAction, href="javascript:void(0)") {{pill}}

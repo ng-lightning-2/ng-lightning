@@ -1,0 +1,5 @@
+ng-container([ngSwitch]="type")
+  ngl-dynamic-icon-ellie(*ngSwitchCase="'ellie'", [alternativeText]="alternativeText")
+  ngl-dynamic-icon-eq(*ngSwitchCase="'eq'", [option]="option", [alternativeText]="alternativeText")
+  ngl-dynamic-icon-score(*ngSwitchCase="'score'", [option]="option", [alternativeText]="alternativeText")
+  ngl-dynamic-icon-waffle(*ngSwitchCase="'waffle'", [alternativeText]="alternativeText")

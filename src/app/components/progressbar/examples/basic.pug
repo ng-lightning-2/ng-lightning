@@ -1,0 +1,13 @@
+div
+  .slds-grid.slds-grid_align-spread.slds-p-bottom_x-small
+    span Setup Assistant
+    span(aria-hidden="true")
+      strong {{value}}% Complete
+
+  ngl-progress-bar([value]="value", [size]="size", [variant]="variant")
+
+.slds-grid.slds-m-top_large(style="height: 50px;")
+  .slds-align-middle.slds-col
+    button(type="button", nglButton, (click)="random()") Randomize
+    button(type="button", nglButton, (click)="changeVariant()") Change Variant
+    button(type="button", nglButton, (click)="changeSize()") Change Size

@@ -1,0 +1,12 @@
+figure
+  //- Link
+  ng-content
+
+  //- Title
+  figcaption.slds-file__title.slds-file__title_card(*ngIf="text")
+    .slds-media.slds-media_small.slds-media_center
+      .slds-media__figure.slds-line-height_reset(*ngIf="iconName")
+        ngl-icon([iconName]="iconName")
+      .slds-media__body
+        span.slds-file__text.slds-truncate([title]="text", [nglInternalOutlet]="text")
+

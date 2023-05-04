@@ -1,0 +1,12 @@
+ngl-combobox(label="Who is your favorite superhero?",
+             [options]="filteredHeroes$ | async",
+             [(open)]="open",
+             [(selection)]="superhero",
+             variant="lookup")
+  input(nglCombobox, type="text", placeholder="Hint: type `man` or `r`", [formControl]="inputCtrl")
+|
+|
+.slds-m-top_x-small(*ngIf="superhero")
+  | My favorite superhero is
+  |
+  strong {{ superhero }}

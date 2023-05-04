@@ -1,0 +1,25 @@
+.slds-grid
+  ngl-badge Badge
+  ngl-badge(theme="default") default
+  ngl-badge(theme="shade") shade
+  ngl-badge(theme="inverse") inverse
+  ngl-badge(theme="alt-inverse") alt-inverse
+  ngl-badge(theme="success") success
+
+.slds-grid.slds-m-top_medium
+  ngl-badge(theme="info") info
+  ngl-badge(theme="warning") warning
+  ngl-badge(theme="error") error
+  ngl-badge(theme="offline") offline
+  ngl-badge(theme="alert-texture") alert-texture
+
+.slds-grid.slds-m-top_medium
+  ngl-badge
+    | Badges with
+    |
+    strong Nested Elements
+
+.slds-m-top_large.slds-grid.slds-grid_vertical-align-center
+  button(type="button", nglButton, (click)="change()") Change
+  ngl-badge.slds-m-horizontal_large([theme]="theme") {{theme}}
+

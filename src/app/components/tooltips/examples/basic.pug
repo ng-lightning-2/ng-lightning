@@ -1,0 +1,16 @@
+ng-template(#tip)
+  strong {{ placement }}
+    |  placement. Initially open!
+  |   Dolor sit amet,
+  i consectetur adipisicing
+  |  elit. Cum, quaerat?
+div
+  | Quisque scelerisque lectus vel sodales semper.
+  | Sed
+  a([nglTooltip]="tip", [nglTooltipPlacement]="placement", [(nglTooltipOpen)]="open")  hover
+  |   vehicula sapien, vitae tristique nisl viverra vitae. Aliquam erat volutpat. Ut accumsan metus vel hendrerit sagittis.
+.slds-button-group.slds-m-top_xx-large(role="group")
+  button(type="button", (click)="change()", nglButton) Change placement
+  button(type="button", (click)="open = !open", nglButton) Toggle
+.slds-m-top_x-large
+  span(nglTooltip="...which always keep showing!", nglTooltipOpen="true", nglTooltipPlacement="right") You can also make tooltips

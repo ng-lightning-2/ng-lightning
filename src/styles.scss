@@ -1,0 +1,280 @@
+$color-background: #f4f6f9;
+$color-heading: #16325c;
+$color-highlight: #c41d7f;
+
+@mixin side-element($top: 0) {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  width: 16rem;
+  border-right: 1px solid #D8DEE6;
+  top: $top;
+}
+
+html {
+  background: #FFFFFF;
+}
+
+body {
+  font-size: .875rem;
+  line-height: 1.71429;
+}
+
+.footer {
+  background: $color-background;
+}
+
+.intro {
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
+
+  &__title {
+    font-size: 2.5rem;
+    line-height: 4.375rem;
+    color: $color-heading;
+  }
+
+  &__button {
+    font-size: 1rem;
+    padding: .4rem 2rem;
+  }
+}
+
+app-root {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.component__header, .page__header {
+  padding: 1rem 0;
+  color: #54698d;
+
+  h1 {
+    font-weight: 300;
+    font-size: 1.5rem;
+    line-height: 1.25;
+    text-transform: capitalize;
+  }
+}
+
+.example__header {
+  position: absolute;
+  top: -11px;
+  left: 20px;
+  background: #fff;
+  display: inline-block;
+  padding: 0 10px;
+}
+
+.header {
+  &__logo {
+    height: 6rem;
+    margin-bottom: 0.5rem;
+    background-image: url('./assets/images/shield.svg');
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center;
+    border: 0;
+  }
+
+  a {
+    text-align: center;
+    font-size: 1.125rem;
+    color: $color-heading;
+  }
+}
+
+.banner {
+  background-image: linear-gradient(0deg,transparent 49%,rgba(89,89,89,.03) 50%,rgba(89,89,89,.03) 51%,transparent 52%,transparent),linear-gradient(90deg,transparent 49%,rgba(89,89,89,.03) 50%,rgba(89,89,89,.03) 51%,transparent 52%,transparent);
+  background-size: 35px 35px;
+  height: 100%;
+
+  &-wrapper {
+    background: $color-background;
+    flex: 1;
+  }
+}
+
+.callout {
+  color: $color-heading;
+  font-size: 1.44rem;
+  margin: 2rem 0 1rem;
+}
+
+.code {
+  margin: 0 1px;
+  background: #f2f4f5;
+  padding: .1em .2em;
+  border-radius: 3px;
+  border: 1px solid #eee;
+}
+
+.readme, .api {
+  font-size: 1rem;
+
+   code {
+    margin: 0 1px;
+    background: #f2f4f5;
+    padding: .2em .2em;
+    border-radius: 3px;
+    font-size: 1rem;
+    border: 1px solid #eee;
+  }
+}
+
+.readme {
+  p {
+    margin: 5px 0;
+  }
+
+  ul {
+    list-style: disc;
+    margin-left: 1.25rem;
+    margin-bottom: 0.625rem;
+  }
+}
+
+.api {
+  h3 {
+    font-size: 1.375rem;
+  }
+
+  h4 {
+    color: $color-highlight;
+  }
+
+  h3:not(:first-of-type), h4:not(:first-of-type) {
+    margin-top: 2rem;
+  }
+
+  h3, h4 {
+    display: inline-block;
+    margin-bottom: 1.25rem;
+  }
+
+  h3 + h4 {
+    margin-left: 0.75rem;
+
+    // force line break
+    + h3 {
+      display: inline;
+
+      &::before {
+        content: "\A";
+        white-space: pre;
+      }
+    }
+  }
+
+  table {
+    font-size: 0.875rem;
+    line-height: 1.5;
+    border-width: 0;
+
+    th {
+      background-color: #e8e8e8;
+      color: rgb(81, 79, 77);
+      padding: .5rem;
+    }
+
+    td {
+      padding: .5rem;
+      border-width: 1px 0;
+      border-bottom: 1px solid #e8e8e8;
+    }
+
+    td:nth-child(3) {
+      font-size: 0.8125rem;
+      color: $color-highlight;
+    }
+
+    tr:hover>td {
+      background-color: #f3f2f2;
+    }
+  }
+
+  p + table {
+    margin-top: 1rem;
+  }
+}
+
+// utils
+.height-100pc {
+  height: 100%;
+}
+
+.width-100pc {
+  width: 100%;
+}
+
+// ngl/lds customizations
+ngl-pagination {
+  display: block;
+  margin-bottom: 15px;
+}
+
+.slds-tabs_default__content {
+  padding-bottom: 0;
+}
+
+// prism customizations
+code[class*="language-"],
+pre[class*="language-"] {
+  background-color: $color-background;
+}
+
+// media queries
+@media (min-width: 64em) {
+  .component__header, .page__header {
+    height: 6.25rem;
+
+    h1 {
+      font-size: 2.75rem;
+    }
+  }
+}
+
+.main {
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
+}
+
+@media(min-width: 48em) {
+  .header {
+    @include side-element();
+  }
+  .aside {
+    @include side-element(179px);
+
+    padding-bottom: 1.5rem;
+    overflow-y: hidden;
+    &:hover {
+      overflow: hidden;
+      overflow-y: auto;
+    }
+  }
+
+  .main {
+    margin-left: 16rem;
+    width: calc(100% - 16rem);
+  }
+}
+
+@media (max-width: 47.9375em) {
+  .header {
+    padding-bottom: 0;
+
+    &__logo {
+      height: 4rem;
+    }
+  }
+
+  .component__header {
+    padding-top: 0;
+  }
+}

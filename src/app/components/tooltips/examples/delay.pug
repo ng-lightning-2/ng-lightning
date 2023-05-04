@@ -1,0 +1,7 @@
+button(type="button", nglButton, nglTooltip="I open and close with 1 second delay...", nglTooltipDelay="1000", [(nglTooltipOpen)]="open", #x="nglTooltip") Hover or Focus
+|
+|
+.slds-m-top_medium
+  button(type="button", nglButton, (click)="x.open(0)") Open immediately
+  button(type="button", nglButton, (click)="x.close(0)") Close immediately
+

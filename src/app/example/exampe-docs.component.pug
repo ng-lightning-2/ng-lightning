@@ -1,0 +1,16 @@
+.slds-is-absolute(style="right: 0;")
+  button.slds-button.slds-button_neutral(type="button", (click)="showCode = !showCode", title="Toggle Code")
+    img(src="assets/images/code.svg", style="height:15px;")
+    |  Code
+
+  button.slds-button.slds-button_neutral(type="button", (click)="tryItOut()", title="Edit on Stackblitz")
+    img(src="assets/images/stackblitz.svg", style="height:15px;")
+    |  Stackblitz
+
+ngl-tabset(*ngIf="showCode", [selected]="selectedTab", (selectedChange)="selectedTab = $event.id")
+
+  ng-template(ngl-tab="ngl-tab", id="markup", label="Markup")
+    ng-container(*ngTemplateOutlet="markup")
+
+  ng-template(ngl-tab="ngl-tab", id="ts", label="Typescript")
+    ng-container(*ngTemplateOutlet="ts")

@@ -1,0 +1,6 @@
+span.slds-icon-score([attr.data-slds-state]="option")
+  svg.slds-icon-score__positive(viewBox='0 0 5 5', aria-hidden='true')
+    circle(cx='50%', cy='50%', r='1.875')
+  svg.slds-icon-score__negative(viewBox='0 0 5 5', aria-hidden='true')
+    circle(cx='50%', cy='50%', r='1.875')
+  span.slds-assistive-text(*ngIf="alternativeText") {{alternativeText}}

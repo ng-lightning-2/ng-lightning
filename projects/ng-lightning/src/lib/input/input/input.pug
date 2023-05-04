@@ -1,0 +1,5 @@
+label([nglFormLabel]="label", [attr.for]="_uid", [required]="required")
+ngl-form-help(*ngIf="fieldLevelHelpTooltip", [content]="fieldLevelHelpTooltip")
+.slds-form-element__control
+  ng-content
+.slds-form-element__help(*ngIf="hasError", [id]="errorId", [nglInternalOutlet]="error")

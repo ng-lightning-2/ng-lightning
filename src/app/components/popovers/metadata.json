@@ -1,0 +1,9 @@
+{
+  "examples": {
+    "basic": "Basic Usage",
+    "header": "Header & Footer",
+    "placement": "Placement",
+    "size": "Size",
+    "variant": "Variant"
+  }
+}

@@ -1,0 +1,50 @@
+header.component__header.slds-border_bottom.slds-grid.slds-wrap.slds-m-bottom_medium
+  .slds-has-flexi-truncate.slds-align-middle
+    h1(style="text-transform: capitalize")
+      block title
+        |  #{self.title}
+  .slds-align-middle.slds-text-body_small
+    if self.lds
+      a.slds-button.slds-button_neutral(href=`https://www.lightningdesignsystem.com/components/${self.lds}`, title="External link to Salesforce Lightning Design System Site", target="_blank") Lightning
+    a.slds-button.slds-button_neutral(href=`https://github.com/ng-lightning/ng-lightning/tree/master/projects/ng-lightning/src/lib/${self.src}`, target="_blank")
+      .slds-grid.slds-grid_vertical-align-center
+        img(src="assets/images/github.svg", style="height:15px; width:15px; margin-right:0.5rem;")
+        | Source
+
+.slds-m-vertical_medium.readme
+  block readme
+    | !{self.readme}
+
+.slds-m-vertical_medium
+  h2.callout Examples
+  block examples
+    each example in self.examples
+      .slds-box.slds-is-relative.slds-theme_default.slds-m-bottom_large(style="padding-top: 1.5rem;")
+        - var exampleHeader = self.metadata.examples[example.id]
+        if exampleHeader
+          .example__header.slds-text-heading_small #{exampleHeader}
+
+        if example.readme
+          .slds-m-bottom_small !{example.readme}
+
+        #{'app-demo-'+ self.dir + '-' + example.id}
+
+        ng-template(ngPreserveWhitespaces)&attributes({ ['#markup' + example.id]: '' })
+          pre.language-markup(ngNonBindable)
+            code !{example.html}
+        ng-template(ngPreserveWhitespaces)&attributes({ ['#ts' + example.id]: '' })
+          pre.language-typescript
+            code !{example.ts}
+
+        .slds-is-relative.slds-m-top_large(style="min-height: 25px;")
+          app-demo-example-docs(dir=self.dir, file=example.id,
+                                [ts]=`ts${example.id}`, [markup]=`markup${example.id}`,
+                                tsRaw=`${example.tsRaw}`, markupRaw=`${example.htmlRaw}`)
+
+.slds-m-vertical_medium
+  h2.callout API
+
+  .slds-box.slds-theme_default
+    .api
+      block api
+        | !{self.api}

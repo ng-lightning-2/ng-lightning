@@ -1,0 +1,15 @@
+| Value is: {{value}}
+ngl-rating([(rate)]="value", [isReadonly]="readonly", [size]="size", [colorOn]="color")
+
+.slds-grid.slds-m-top_large
+button(type="button", nglButton, variant="destructive", (click)="value = 0", [disabled]="readonly") Clear
+button(type="button", nglButton, (click)="readonly = !readonly") Toggle readonly
+button(type="button", nglButton, (click)="changeSize()") Change Size
+button(type="button", nglButton, (click)="changeColor()") Change Color
+.slds-grid.slds-m-top_large
+button(type="button", nglButton, (click)="value = 1.8") 1.80
+button(type="button", nglButton, (click)="value = 4.25") 4.25
+.slds-text-title_caps.slds-m-bottom_small.slds-m-top_x-large Custom icon
+ngl-rating([(rate)]="value")
+  ng-template(nglRatingIcon, let-active)
+    ngl-avatar([src]="customImage(active)", type="circle")

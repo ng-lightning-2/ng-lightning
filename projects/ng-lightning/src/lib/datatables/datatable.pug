@@ -1,0 +1,22 @@
+thead
+  tr.slds-line-height_reset
+    th(*ngFor="let col of columns; trackBy:columnTrackBy", nglDatatableHead,
+       scope="col",
+       [heading]="col.heading", [headingTpl]="col.headingTpl?.templateRef",
+       [sortable]="col.sortable", [sortOrder]="getColumnSortOrder(col)", (sort)="onColumnSort(col, $event)",
+       [ngClass]="col.headClass")
+
+tbody
+  //- No data
+  ng-template(#noData)
+    tr
+      td([attr.colspan]="columns.length")
+        ng-template([ngTemplateOutlet]="noRowsOverlay?.templateRef")
+
+  ng-container(*ngIf="data && data.length > 0; else noData")
+    tr(*ngFor="let d of data; let i = index; trackBy:dataTrackBy", (click)="onRowClick($event, d)")
+      td(*ngFor="let col of columns; trackBy:columnTrackBy", [ngClass]="col.cellClass",
+         nglDatatatableCell_, [row]="d", [column]="col", [index]="i")
+
+.ngl-datatable-loading.slds-align_absolute-center(*ngIf="showLoading")
+  ng-template([ngTemplateOutlet]="loadingOverlay.templateRef")

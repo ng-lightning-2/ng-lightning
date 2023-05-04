@@ -1,0 +1,37 @@
+label(*ngIf="label", [nglFormLabel]="label", [attr.for]="uid", [required]="isRequired")
+
+.slds-form-element__control.slds-input-has-icon.slds-input-has-icon_right(#formEl, cdkOverlayOrigin, #overlayOrigin="cdkOverlayOrigin")
+  ng-content
+  button.slds-button.slds-button_icon.slds-input__icon.slds-input__icon_right(type="button",
+                                                                              [title]="selectDateLabel",
+                                                                              [disabled]="disabled",
+                                                                              (click)="onTriggerClick('button')")
+    svg.slds-button__icon(nglIconName="utility:event")
+    span.slds-assistive-text {{ selectDateLabel }}
+
+ng-template(cdkConnectedOverlay,
+            #cdkOverlay="cdkConnectedOverlay",
+            [cdkConnectedOverlayPositions]="overlayPositions",
+            [cdkConnectedOverlayOrigin]="overlayOrigin",
+            [cdkConnectedOverlayOpen]="open",
+            (nglOverlayScrolledOutsideView)="closeCalendar(false)",
+            (attach)="onAttach()",
+            (detach)="onDetach()")
+  ngl-datepicker.slds-dropdown([attr.aria-hidden]="!open",
+                               [date]="date",
+                               [monthNames]="monthNames",
+                               [dayNamesShort]="dayNamesShort",
+                               [dayNamesLong]="dayNamesLong",
+                               [firstDayOfWeek]="firstDayOfWeek",
+                               [showToday]="showToday",
+                               [min]="min",
+                               [max]="max",
+                               [relativeYearFrom]="relativeYearFrom",
+                               [relativeYearTo]="relativeYearTo",
+                               [todayLabel]="todayLabel",
+                               [previousMonthLabel]="previousMonthLabel",
+                               [nextMonthLabel]="nextMonthLabel",
+                               [dateDisabled]="dateDisabled",
+                               (dateChange)="pickerSelection($event)",
+                               (nglClickOutside)="closeCalendar(false)",
+                               [nglClickOutsideIgnore]="formEl")
