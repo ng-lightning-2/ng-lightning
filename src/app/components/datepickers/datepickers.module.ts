@@ -32,7 +32,7 @@ const routes: Routes = [
     NglButtonsModule,
     NglCheckboxesModule,
     NglDemoExampleModule,
-    NgxCleaveDirectiveModule,
+    //NgxCleaveDirectiveModule,
   ],
   declarations: [
     DemoDatepickersComponent,
