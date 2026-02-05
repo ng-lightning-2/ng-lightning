@@ -1,6 +1,6 @@
 # ng-lightning
 
-This library is a version of the original library ng-lightning updated to work with Angular 15.
+This library is a version of the original library ng-lightning.
 
 This library contains native [Angular](https://angular.io/) components and directives written from scratch in TypeScript using the [Lightning Design System](https://www.lightningdesignsystem.com/) CSS framework.
 
